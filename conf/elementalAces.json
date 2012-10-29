@@ -1,0 +1,79 @@
+{
+  "name": "ElementalAces",
+  "description": "API for the card-based element trumping game, Elemental Aces",
+  "author": "Paul Kilgo and Nicholas Hamner",
+
+  "gets":
+  [
+    {
+      "path": "/api/game_list",
+      "callback": "getGameList",
+      "doc": "Returns a list of all games the user is playing"
+    },
+    {
+      "path": "/api/game/<gameId>/hand",
+      "callback": "getHand",
+      "doc": "Returns a list of cards in a user's hand for given <gameId>"
+    },
+    {
+      "path": "/api/game/<gameId>/discard",
+      "callback": "getDiscard",
+      "doc": "Returns a list of cards in user's discard pile for <gameId>"
+    },
+    {
+      "path": "/api/game/<gameId>",
+      "callback": "getGameState",
+      "doc": "Returns the game state for a given gameId"
+    }
+  ],
+
+  "posts":
+  [
+    {
+      "path": "/api/login",
+      "callback": "login",
+      "doc": "Logs in a user by username and password",
+      "parameters": ["username", "password"]
+    },
+    {
+      "path": "/api/register",
+      "callback": "register",
+      "doc": "Registers a new username and password",
+      "parameters": ["username", "password"]
+    },
+    {
+      "path": "/api/game/<gameId>/move/<number>",
+      "callback": "postMove",
+      "doc": "Post an arbitrary move number given a game ID and card instance IDs",
+      "parameters": ["elementCardId"],
+      "optionals": ["magicCardId"]
+    },
+    {
+      "path": "/api/challenge",
+      "callback": "challenge",
+      "doc": "Challenges a user to a game.",
+      "parameters": ["username"]
+    },
+    {
+      "path": "/api/game/<gameId>/accept",
+      "callback": "accept",
+      "doc": "Accepts a game we've been challenged to."
+    },
+    {
+      "path": "/api/game/<gameId>/reject",
+      "callback": "reject",
+      "doc": "Rejects a game we've been challenged to."
+    },
+    {
+      "path": "/api/game/<gameId>/concede",
+      "callback": "concede",
+      "doc": "Concedes a game which is in progress."
+    },
+    {
+      "path": "/api/c2dm/associate",
+      "callback": "c2dmAssociate",
+      "doc": "Associates a C2DM registration ID with the logged-in user.",
+      "parameters": ["regId"]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "gets":
+  [
+    {
+      "path": "/api/add/<one>/<two>",
+      "callback": "add",
+      "doc": "Returns result of adding <one> and <two>"
+    },
+    {
+      "path": "/api/mult/<one>/<two>",
+      "callback": "mult",
+      "doc": "Returns result of multiplying <one> and <two>"
+    }
+  ],
+
+  "posts":
+  [
+    {
+      "path": "/api/resource",
+      "callback": "putResource",
+      "doc": "Inserts a resource",
+      "parameters": ["firstName", "lastName"],
+      "optionals": ["middle"]
+    }
+  ]
+}
